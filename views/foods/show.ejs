@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/nav') %>
+
+    <div
+      style="
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      "
+    >
+      <h1><%= food.name %></h1>
+
+      <div
+        class="food-card"
+        style="
+          display: block;
+          width: 100%;
+          max-width: 500px;
+          margin: 20px auto;
+          padding: 30px;
+        "
+      >
+        <% if(food.img) { %>
+        <img
+          src="<%= food.img %>"
+          alt="<%= food.name %>"
+          style="
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          "
+        />
+        <% } %>
+
+        <div style="text-align: left; font-size: 1.1rem; line-height: 2">
+          <p><strong>Cuisine:</strong> <%= food.cuisine %></p>
+          <p><strong>Calories:</strong> <%= food.calories %> kcal</p>
+          <p>
+            <strong>Dietary:</strong> <%= food.isVegetarian ? 'Vegetarian 🌿' :
+            'Non-Vegetarian' %>
+          </p>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+          "
+        >
+          <a
+            href="/foods/<%= food._id %>/edit"
+            class="home-btn"
+            style="background: #add8e6; color: #4a4a4a; padding: 10px 20px"
+            >Edit Dish</a
+          >
+
+          <form
+            action="/foods/<%= food._id %>?_method=DELETE"
+            method="POST"
+            style="display: inline"
+          >
+            <button
+              type="submit"
+              class="home-btn"
+              style="
+                background: #ffb6c1;
+                color: #4a4a4a;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+              "
+            >
+              Delete Dish
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <a
+        href="/foods"
+        style="color: #ff69b4; font-weight: bold; text-decoration: none"
+        >← Back to Collection</a
+      >
+    </div>
+  </body>
+</html>

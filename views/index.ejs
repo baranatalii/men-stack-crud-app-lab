@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Foodie App</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
+  <%- include('./partials/head') %>
   <body>
-    <h1>Welcome to the Food App</h1>
-    <a href="/foods">View All Foods</a>
+    <%- include('./partials/nav') %>
+
+    <div style="text-align: center; padding: 60px 20px">
+      <h1 style="font-size: 3.5rem; margin-bottom: 10px">🍴 Foodie App</h1>
+      <p
+        style="
+          font-size: 1.2rem;
+          color: #666;
+          margin-bottom: 40px;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+        "
+      >
+        The simple, colorful way to track your culinary adventures. Organize
+        your recipes, monitor calories, and explore new cuisines.
+      </p>
+
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          flex-wrap: wrap;
+        "
+      >
+        <a href="/foods" class="home-btn">View My Collection</a>
+        <a
+          href="/foods/new"
+          class="home-btn"
+          style="
+            background: #add8e6;
+            color: #4a4a4a;
+            box-shadow: 0 4px 15px rgba(173, 216, 230, 0.5);
+          "
+          >Add New Food</a
+        >
+      </div>
+    </div>
   </body>
 </html>

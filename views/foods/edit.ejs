@@ -5,15 +5,15 @@
     <%- include('../partials/nav') %>
 
     <div style="text-align: center">
-      <h1>Add a New Dish</h1>
+      <h1>Edit <%= food.name %></h1>
 
-      <form action="/foods" method="POST">
+      <form action="/foods/<%= food._id %>?_method=PUT" method="POST">
         <label for="name">Food Name:</label>
         <input
           type="text"
           name="name"
           id="name"
-          placeholder="e.g. Margherita Pizza"
+          value="<%= food.name %>"
           required
         />
 
@@ -22,39 +22,34 @@
           type="text"
           name="cuisine"
           id="cuisine"
-          placeholder="e.g. Italian"
+          value="<%= food.cuisine %>"
         />
 
         <label for="img">Image URL:</label>
-        <input
-          type="text"
-          name="img"
-          id="img"
-          placeholder="Paste link from Google Images here"
-        />
+        <input type="text" name="img" id="img" value="<%= food.img %>" />
 
         <label for="calories">Calories:</label>
         <input
           type="number"
           name="calories"
           id="calories"
-          placeholder="e.g. 500"
+          value="<%= food.calories %>"
         />
 
-        <label style="display: block; margin-top: 10px">
-          <input
-            type="checkbox"
-            name="isVegetarian"
-            style="display: inline; width: auto"
-          />
-          Vegetarian?
+        <label>
+          <input type="checkbox" name="isVegetarian" style="display: inline;
+          width: auto;" <%= food.isVegetarian ? 'checked' : '' %>> Vegetarian?
         </label>
 
-        <button type="submit" style="margin-top: 20px">Create Food Item</button>
+        <button type="submit" style="margin-top: 20px">
+          Update <%= food.name %>
+        </button>
       </form>
 
       <div style="margin-top: 20px">
-        <a href="/foods" style="color: #666">Cancel and Go Back</a>
+        <a href="/foods/<%= food._id %>" style="color: #666"
+          >Cancel and Go Back</a
+        >
       </div>
     </div>
   </body>

@@ -1,22 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>All Foods</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
+  <%- include('../partials/head') %>
   <body>
-    <h1>Food List</h1>
-    <a href="/foods/new">Add New Food</a>
-    <hr />
-    <div>
+    <%- include('../partials/nav') %>
+
+    <h1 style="text-align: center; margin-bottom: 30px">My Food Collection</h1>
+
+    <div class="food-container">
       <% foods.forEach(food => { %>
       <div class="food-card">
-        <h3><a href="/foods/<%= food._id %>"><%= food.name %></a></h3>
-        <p><%= food.cuisine %></p>
-        <% if(food.img) { %>
-        <img src="<%= food.img %>" width="100" />
+        <% if(food.img && food.img.length > 0) { %>
+        <img src="<%= food.img %>" alt="<%= food.name %>" />
+        <% } else { %>
+        <img
+          src="https://via.placeholder.com/280x180?text=No+Image+Available"
+        />
         <% } %>
+
+        <h3>
+          <a
+            href="/foods/<%= food._id %>"
+            style="text-decoration: none; color: inherit"
+          >
+            <%= food.name %>
+          </a>
+        </h3>
+        <p><strong>Cuisine:</strong> <%= food.cuisine %></p>
+        <p><em><%= food.calories %> calories</em></p>
+
+        <div
+          class="card-actions"
+          style="
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+          "
+        >
+          <a href="/foods/<%= food._id %>/edit" class="edit-btn">Edit</a>
+
+          <form
+            action="/foods/<%= food._id %>?_method=DELETE"
+            method="POST"
+            style="all: unset"
+          >
+            <button type="submit" class="delete-btn">Delete</button>
+          </form>
+        </div>
       </div>
       <% }) %>
     </div>
