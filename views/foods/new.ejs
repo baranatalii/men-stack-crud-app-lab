@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Food</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1>Create New Food</h1>
+    <form action="/foods" method="POST">
+      Name: <input type="text" name="name" required /> Cuisine:
+      <input type="text" name="cuisine" /> Calories:
+      <input type="number" name="calories" /> Description:
+      <textarea name="description"></textarea> Image URL:
+      <input type="text" name="img" /> Vegetarian:
+      <input type="checkbox" name="isVegetarian" />
+      <button type="submit">Save Food</button>
+    </form>
+  </body>
+</html>

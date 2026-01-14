@@ -1,3 +1,43 @@
+body {
+  background-color: #fff0f5;
+  font-family: "Segoe UI", sans-serif;
+  color: #4a4a4a;
+  padding: 20px;
+}
 h1 {
-  color: hotpink;
+  color: #ff69b4;
+}
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+input,
+textarea {
+  display: block;
+  margin-bottom: 10px;
+  border: 2px solid #ffb6c1;
+  border-radius: 5px;
+  padding: 5px;
+}
+button {
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #ff1493;
+}
+.food-card {
+  border: 2px solid #add8e6;
+  background: white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
 }
